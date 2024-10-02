@@ -1,1 +1,121 @@
-
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见鸟类</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b8e0d6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c7a7b;
+            margin-bottom: 20px;
+        }
+        .sun {
+            width: 30px;
+            height: 30px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .box {
+            aspect-ratio: 4 / 3;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+            text-decoration: none; /* 移除链接的下划线 */
+            display: block; /* 使链接填满整个盒子 */
+        }
+        .box:hover {
+            transform: scale(1.05);
+        }
+        .box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.8));
+            z-index: 1;
+        }
+        .box-content {
+            position: relative;
+            z-index: 2;
+        }
+        .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255,255,255,0.8);
+            color: #2c7a7b;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">常见鸟类</h1>
+            <p class="subtitle">它们虽然常见，却是生活中最美的风景
+            </p>
+            <div class="sun"></div>
+        </div>
+        <div class="grid">
+            <a href="http://116.62.60.158/imform/bailu" class="box" style="background-image: url('http://116.62.60.158/bailu');">
+                <div class="tag">大/小白鹭</div>
+                <div class="box-content">
+                    <h2>大白鹭（右）</h2>
+                    <p>小白鹭，简称白鹭（左）</p>
+                    <p>[区别]...</p>
+                </div>
+            </a>
+            <a href="http://116.62.60.158/imform/maque" class="box" style="background-image: url('http://116.62.60.158/maque');">
+                <div class="tag">麻雀</div>
+                <div class="box-content">
+                    <h2>麻雀</h2>
+                    <p>还没写好.....</p>
+                </div>
+            </a>
+            <a href="http://116.62.60.158/imform/baitoubei" class="box" style="background-image: url('http://116.62.60.158/baitoubei');">
+                <div class="tag">白头鹎</div>
+                <div class="box-content">
+                    <h2>白头鹎</h2>
+                    <p>还没写好.....</p>
+                </div>
+            </a>
+            <a href="http://116.62.60.158/imform/wudong" class="box" style="background-image: url('http://116.62.60.158/wudong');">
+                <div class="tag">乌鸫</div>
+                <div class="box-content">
+                    <h2>乌鸫</h2>
+                    <p>还没写好.....</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
