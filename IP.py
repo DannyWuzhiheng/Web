@@ -39,10 +39,13 @@ def join_net():
     return render_template('join.html')  
 @app.route('/imform')  
 def imform_net():  
-    return render_template('imform.html') 
+    page=request.args.get("page")
+    if page == None or page=='' or page == ' ':
+        page=1
+    return render_template('imform.html',page=int(page)) 
 @app.route('/imform/<name>')
-def bird_inet():
-    return render_template(f'imform\\name.html')
+def bird_inet(name):
+    return render_template(f'imform_{name}.html')
 @app.route('/jinshan')
 def get_image():
     image_path = os.path.join('pic', 'jinshan.png')
@@ -51,12 +54,17 @@ def get_image():
 def get_image2():
     image_path = os.path.join('pic', 'feishu.png')
     return send_file(image_path, mimetype='image/png') 
-@app.route('/bailu')
+@app.route('/pic')
 def get_image3():
-    image_path = os.path.join('pic', 'bailu.png')
+    file=request.args.get("key")+'.png'
+    image_path = os.path.join('pic', file)
+    print(image_path)
     return send_file(image_path, mimetype='image/png') 
 @app.route('/')  
 def net():  
     return redirect('http://116.62.60.158/login', code=302) 
+@app.errorhandler(Exception)
+def handle_exception(error):
+    return render_template('error.html')
 if __name__ == '__main__':  
     app.run(host="0.0.0.0", debug=True, port=80)
