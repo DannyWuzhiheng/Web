@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, send_file
+from flask import Flask, render_template, request, redirect, url_for, send_file, make_response
+
 import os 
 
 app = Flask(__name__)  
@@ -14,9 +15,15 @@ def login_net():
             for i in a:
                 usps=i.split(' ')
                 if usps[0]==username and usps[1]==password:
-                    return redirect('http://116.62.60.158/index', code=302) 
-                else:
-                    return "登录失败"  
+                    resp = make_response(redirect('http://116.62.60.158/index', code=302))
+                    resp.set_cookie("login",username)
+                    if username == 'Administrator':
+                        resp.set_cookie("ss",'admin')
+                    else:
+                        resp.set_cookie("ss",'user')
+                    return resp
+            else:
+                return "登录失败"  
     return render_template('login.html')  
 @app.route('/signup', methods=['GET', 'POST'])  
 def signup_net():  
@@ -63,8 +70,17 @@ def get_image3():
 @app.route('/')  
 def net():  
     return redirect('http://116.62.60.158/login', code=302) 
+@app.route('/pros')
+def pros():
+    cookie_1 = request.cookies.get("ss")
+    if cookie_1 == 'admin':
+        return render_template(f'admin.html')
+    else:
+        return "您没有权限"
+
 @app.errorhandler(Exception)
 def handle_exception(error):
     return render_template('error.html')
+
 if __name__ == '__main__':  
     app.run(host="0.0.0.0", debug=True, port=80)
