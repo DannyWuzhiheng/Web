@@ -100,11 +100,27 @@
     </style>
 </head>
 <body>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color:#b8e0d6 ; border-bottom: 1px solid #e5e5e5;">
+            <div>
+                <a href="./index">
+                    <img src="http://116.62.60.158/pic?key=KSCIX" alt="KSCIX Logo" style="height: 32px;">
+                </a>
+            </div>
+            <div style="display: flex; gap: 24px;">
+                <a href="./index" class="bi bi-house"></a>
+                <a href="./index" style="color: #113; text-decoration: none;">首页</a>
+                <a href="./imform" class="bi bi-grid-3x3-gap"></a>
+                <a href="./imform" style="color: #000; text-decoration: none;">常见鸟类</a>
+                <a href="./sheet" class="bi bi-layout-text-sidebar-reverse"></a>
+                <a href="./sheet" style="color: #000; text-decoration: none;">鸟单</a>
+                <a href="./user" class="bi bi-person"></a>
+                <a href="./user" style="color: #000; text-decoration: none;">{{username}}</a>
+            </div>
+    </nav>
     <div class="container">
         <div class="header">
             <h1 class="title">常见鸟类</h1>
             <p class="subtitle">它们虽然常见，却是生活中最美的风景</p>
-            <div class="sun"></div>
         </div>
         {% if page == 1 %}
             <div class="grid">
@@ -154,21 +170,21 @@
             </div>
         {% elif page == 2 %}
             <div class="grid">
-                <a href="http://116.62.60.158/imform/bailu" class="box" style="background-image: url('http://116.62.60.158/pic?key=canglu');">
+                <a href="http://116.62.60.158/imform/canglu" class="box" style="background-image: url('http://116.62.60.158/pic?key=canglu');">
                     <div class="tag">苍鹭</div>
                     <div class="box-content">
                         <h2>苍鹭</h2>
                         <p>还没写好.....</p>
                     </div>
                 </a>
-                <a href="http://116.62.60.158/imform/bailu" class="box" style="background-image: url('http://116.62.60.158/pic?key=quequ');">
+                <a href="http://116.62.60.158/imform/quequ" class="box" style="background-image: url('http://116.62.60.158/pic?key=quequ');">
                     <div class="tag">鹊鸲</div>
                     <div class="box-content">
                         <h2>鹊鸲</h2>
                         <p>还没写好.....</p>
                     </div>
                 </a>
-                <a href="http://116.62.60.158/imform/bailu" class="box" style="background-image: url('http://116.62.60.158/pic?key=heiling');">
+                <a href="http://116.62.60.158/imform/heiling" class="box" style="background-image: url('http://116.62.60.158/pic?key=heiling');">
                     <div class="tag">黑领椋鸟</div>
                     <div class="box-content">
                         <h2>黑领椋鸟</h2>
