@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file, make_response
-
 import os 
 
 app = Flask(__name__)  
@@ -21,6 +20,7 @@ def login_net():
                         resp.set_cookie("ss",'admin')
                     else:
                         resp.set_cookie("ss",'user')
+                    resp.set_cookie("username",username)
                     return resp
             else:
                 return "登录失败"  
@@ -40,7 +40,10 @@ def signup_net():
     return render_template('signup.html')  
 @app.route('/index')  
 def main_net():  
-    return render_template('index.html')  
+    cookie = request.cookies.get("username")
+    if cookie==None:
+        cookie = "您未登录"
+    return render_template('index.html',username=cookie)  
 @app.route('/join')  
 def join_net():  
     return render_template('join.html')  
@@ -49,7 +52,10 @@ def imform_net():
     page=request.args.get("page")
     if page == None or page=='' or page == ' ':
         page=1
-    return render_template('imform.html',page=int(page)) 
+    cookie = request.cookies.get("username")
+    if cookie==None:
+        cookie = "您未登录"
+    return render_template('imform.html',page=int(page),username=cookie) 
 @app.route('/imform/<name>')
 def bird_inet(name):
     return render_template(f'imform_{name}.html')
@@ -70,10 +76,17 @@ def get_image3():
 @app.route('/')  
 def net():  
     return redirect('http://116.62.60.158/login', code=302) 
-@app.route('/pros')
+@app.route('/admin', methods=['GET', 'POST'])
 def pros():
     cookie_1 = request.cookies.get("ss")
     if cookie_1 == 'admin':
+        if request.method == 'POST':  
+            title = request.form['title']  
+            text = request.form['text'] 
+            p_url = request.form['p-url'] 
+            url = request.form['url'] 
+            with open(r'templates/imform.html','r',encoding='utf-8') as f:
+                text = f.read()
         return render_template(f'admin.html')
     else:
         return "您没有权限"
@@ -83,4 +96,6 @@ def handle_exception(error):
     return render_template('error.html')
 
 if __name__ == '__main__':  
+    os.system("clear")
+    os.system("figlet LYFY   Web")
     app.run(host="0.0.0.0", debug=True, port=80)
