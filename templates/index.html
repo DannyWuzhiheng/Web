@@ -2,13 +2,14 @@
 <html>
     <head>
         <link rel="shortcut icon" href="https://s2.loli.net/2024/08/28/1uhwTUpSiBD9yvG.png" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
         <title>罗源县“林荫飞羽”观鸟入门课官方网站</title>
         <style>
             body {
                 font-family: "楷体", sans-serif;
                 margin: 0;
                 padding: 0;
-                background-image:linear-gradient(-225deg,#20E2D7 0%, #F9FEA5 100%);
+                background-color: rgb(150,255,200)
             }
     
             header {
@@ -37,17 +38,15 @@
                 margin: 0 auto;
                 padding: 20px;
             }
-            img {
-                position: absolute;
-                top: 20px;
-                right: 40px;
-            }
-            img new{
-                position: absolute;
-                top: 800px;
-                right: 40px;
-            }
-    
+            .sun {
+            width: 30px;
+            height: 30px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
            .project-intro {
 
                 padding: 20px;
@@ -68,84 +67,128 @@
                 padding: 10px;
                 text-align: center;
             }
+            .box {
+            background-size: cover;
+            background-position: center;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(100,255,200,0.5);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: block;
+            }
+            .box:hover {
+            transform: scale(1.05);
+            }
+            .box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            }
+            .box-content {
+            position: relative;
+            z-index: 2;
+            }
         </style>
     </head>
     <body>
-        <div class="container">
-            <div class="img">
-                <img src="https://s2.loli.net/2024/08/24/vkVHh2xSq51AbcJ.png" alt="加载图片出现了亿点小问题，请联系@小鹀修复" width="300" height="400">
+        <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: rgb(150,255,200); border-bottom: 1px solid #e5e5e5;">
+            <div>
+                <a href="./index">
+                    <img src="http://116.62.60.158/pic?key=KSCIX" alt="KSCIX Logo" style="height: 32px;">
+                </a>
             </div>
+            <div style="display: flex; gap: 24px;">
+                <a href="./index" class="bi bi-house"></a>
+                <a href="./index" style="color: #113; text-decoration: none;">首页</a>
+                <a href="./imform" class="bi bi-grid-3x3-gap"></a>
+                <a href="./imform" style="color: #000; text-decoration: none;">常见鸟类</a>
+                <a href="./sheet" class="bi bi-layout-text-sidebar-reverse"></a>
+                <a href="./sheet" style="color: #000; text-decoration: none;">鸟单</a>
+                <a href="./user" class="bi bi-person"></a>
+                <a href="./user" style="color: #000; text-decoration: none;">{{username}}</a>
+            </div>
+        </nav>
+        <div class="container">
             <div class="project-intro">
                 <h1>
                     罗源县“林荫飞羽”观鸟入门课
                 </h1>
             </div>
             <div class="project-details">
-                <h2>
-                    ·活动宗旨
-                </h2>
-                    <h3>
-                        1.爱护自然
-                    </h3>
-                    <p>
-                        我们组织此活动的第一目的就是为了让大众爱上自然，学会保护鸟类
-                    </p>
-                    <h3>
-                        2.提供观鸟相关咨询
-                    </h3>
-                    <p>
-                        其次，组织此活动的第二个目标是可以大家科普鸟类知识
-                    </p>
-                <h2>
-                    ·活动时间
-                </h2>
-                    <p>        
-                        请等待相关通知
-                    </p>
-                <h2>
-                    ·联系方式
-                </h2>    
-                    <p>
-                        小鹀：17759257560
-                    </p>
-                    <p>
-                        邮箱:danny_wuzhiheng@outlook.com
-                    </p>
-                    <p>
-                        &ThickSpace;
-                    </p>
-                    <p>
-                        麦鸡：1506065080
-                    </p>
-                    <p>
-                        邮箱:SCIX_FUXIN_han@outlook.com
-                    </p>
-                    <p>
-                        &ThickSpace;
-                    </p>
-                    <p>
-                        小秋：13645030906
-                    </p>
+                <div class="box">
+                    <h2>
+                        活动宗旨
+                    </h2>
+                        <h3>
+                            1.爱护自然
+                        </h3>
+                        <p>
+                            我们组织此活动的第一目的就是为了让大众爱上自然，学会保护鸟类
+                        </p>
+                        <h3>
+                            2.提供观鸟相关咨询
+                        </h3>
+                        <p>
+                            其次，组织此活动的第二个目标是可大家科普鸟类知识
+                        </p>
+                </div>
+                <div class="box">
+                    <h2>
+                        活动时间
+                    </h2>
+                        <p>        
+                            请等待相关通知
+                        </p>
+                </div>   
+                <div class="box"> 
+                    <h2>
+                        联系方式
+                    </h2>    
+                        <p>
+                            小鹀：17759257560
+                        </p>
+                        <p>
+                            邮箱:danny_wuzhiheng@outlook.com
+                        </p>
+                        <p>
+                            &ThickSpace;
+                        </p>
+                        <p>
+                            麦鸡：1506065080
+                        </p>
+                        <p>
+                            邮箱:SCIX_FUXIN_han@outlook.com
+                        </p>
+                        <p>
+                            &ThickSpace;
+                        </p>
+                        <p>
+                            小秋：13645030906
+                        </p>
 
-                    <p>
-                        邮箱:272018426@qq.com
-                    </p>
-                    <p>
-                        &ThickSpace;
-                    </p>
-                    <p>
-                        文珍：13763888992
-                    </p>
-                    <p>
-                        邮箱:22640270@oqq.com
-                    </p>
-                    
+                        <p>
+                            邮箱:272018426@qq.com
+                        </p>
+                        <p>
+                            &ThickSpace;
+                        </p>
+                        <p>
+                            文珍：13763888992
+                        </p>
+                        <p>
+                            邮箱:22640270@oqq.com
+                        </p>
+                </div>        
             </div>
             <p>
                 &ThinSpace;
             </p>
-            <a href="./imform" class="text-blue-500 text-sm">鸟类科普</a>
-            <a href="./join" class="text-blue-500 text-sm">报名</a>
         </div>
     </body>  
 </html>
