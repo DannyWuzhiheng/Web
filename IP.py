@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file, make_response
 import os 
+import pandas as pd  
 
 app = Flask(__name__)  
   
@@ -47,6 +48,9 @@ def main_net():
 @app.route('/join')  
 def join_net():  
     return render_template('join.html')  
+@app.route('/sheet')  
+def bird_sheet():  
+    return render_template('sheet.html')  
 @app.route('/imform')  
 def imform_net():  
     page=request.args.get("page")
@@ -55,7 +59,15 @@ def imform_net():
     cookie = request.cookies.get("username")
     if cookie==None:
         cookie = "您未登录"
-    return render_template('imform.html',page=int(page),username=cookie) 
+   
+    with open(r'/Web/imform.json','r',encoding='utf-8') as f:
+        json=f.read()
+    df = pd.read_json(json, orient='records')
+    id_=df['id']
+    tag=df['tag']
+    img=df['imageUrl']
+    dec=df['description']
+    return render_template('imform.html',page=int(page),username=cookie,tag=tag,dec=dec,img=img,gs=len(tag)+5//6,id=id_) 
 @app.route('/imform/<name>')
 def bird_inet(name):
     return render_template(f'imform_{name}.html')
@@ -90,11 +102,11 @@ def pros():
         return render_template(f'admin.html')
     else:
         return "您没有权限"
-
+'''
 @app.errorhandler(Exception)
 def handle_exception(error):
     return render_template('error.html')
-
+'''
 if __name__ == '__main__':  
     os.system("clear")
     os.system("figlet LYFY   Web")

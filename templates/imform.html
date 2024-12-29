@@ -131,81 +131,20 @@
             <h1 class="title">常见鸟类</h1>
             <p class="subtitle">它们虽然常见，却是生活中最美的风景</p>
         </div>
-        {% if page == 1 %}
-            <div class="grid">
-                <a href="http://116.62.60.158/imform/bailu" class="box" style="background-image: url('http://116.62.60.158/pic?key=bailu');">
-                    <div class="tag">大/小白鹭</div>
-                    <div class="box-content">
-                        <h2>大白鹭（右）</h2>
-                        <p>小白鹭，简称白鹭（左）</p>
-                        <p>[区别]...</p>
-                    </div>
-                </a>
-                <a href="http://116.62.60.158/imform/maque" class="box" style="background-image: url('http://116.62.60.158/pic?key=maque');">
-                    <div class="tag">麻雀</div>
-                    <div class="box-content">
-                        <h2>麻雀</h2>
-                        <p>还没写好.....</p>
-                    </div>
-                </a>
-                <a href="http://116.62.60.158/imform/baitoubei" class="box" style="background-image: url('http://116.62.60.158/pic?key=baitoubei');">
-                    <div class="tag">白头鹎</div>
-                    <div class="box-content">
-                        <h2>白头鹎</h2>
-                        <p>还没写好.....</p>
-                    </div>
-                </a>
-                <a href="http://116.62.60.158/imform/wudong" class="box" style="background-image: url('http://116.62.60.158/pic?key=wudong');">
-                    <div class="tag">乌鸫</div>
-                    <div class="box-content">
-                        <h2>乌鸫</h2>
-                        <p>还没写好.....</p>
-                    </div>
-                </a>
-                <a href="http://116.62.60.158/imform/cuiniao" class="box" style="background-image: url('http://116.62.60.158/pic?key=cuiniao');">
-                    <div class="tag">普通翠鸟</div>
-                    <div class="box-content">
-                        <h2>普通翠鸟</h2>
-                        <p>还没写好.....</p>
-                    </div>
-                </a>
-                <a href="http://116.62.60.158/imform/bolao" class="box" style="background-image: url('http://116.62.60.158/pic?key=bolao');">
-                    <div class="tag">棕背伯劳</div>
-                    <div class="box-content">
-                        <h2>棕背伯劳</h2>
-                        <p>还没写好.....</p>
-                    </div>
-                </a>
-            </div>
-        {% elif page == 2 %}
-            <div class="grid">
-                <a href="http://116.62.60.158/imform/canglu" class="box" style="background-image: url('http://116.62.60.158/pic?key=canglu');">
-                    <div class="tag">苍鹭</div>
-                    <div class="box-content">
-                        <h2>苍鹭</h2>
-                        <p>还没写好.....</p>
-                    </div>
-                </a>
-                <a href="http://116.62.60.158/imform/quequ" class="box" style="background-image: url('http://116.62.60.158/pic?key=quequ');">
-                    <div class="tag">鹊鸲</div>
-                    <div class="box-content">
-                        <h2>鹊鸲</h2>
-                        <p>还没写好.....</p>
-                    </div>
-                </a>
-                <a href="http://116.62.60.158/imform/heiling" class="box" style="background-image: url('http://116.62.60.158/pic?key=heiling');">
-                    <div class="tag">黑领椋鸟</div>
-                    <div class="box-content">
-                        <h2>黑领椋鸟</h2>
-                        <p>还没写好.....</p>
-                    </div>
-                </a>
-        {% else %}
-            <script>
-                alert("页码无效")
-            </script>
-        {% endif %}
-        
+        <div class="grid">
+        {% for i in range((page-1)*6,page*6) %}
+            {% if page > gs %}
+                <script>alert("页码无效")</script>
+            {% endif %}
+            <a href="http://116.62.60.158/imform/{{id[i]}}" class="box" style="background-image: url({{img[i]}});">
+                <div class="tag">{{tag[i]}}</div>
+                <div class="box-content">
+                    <h2>{{tag[i]}}</h2>
+                    <p>{{dec[i]}}</p>
+                </div>
+            </a>
+        {% endfor %}
+        </div>
         <div class="pagination">
             {% if page > 1 %}
                 <a href="http://116.62.60.158/imform?page={{ (page - 1)|string }}">&laquo; 上一页</a>
