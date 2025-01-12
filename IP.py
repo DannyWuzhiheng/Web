@@ -88,25 +88,50 @@ def get_image3():
 @app.route('/')  
 def net():  
     return redirect('http://116.62.60.158/login', code=302) 
-@app.route('/admin', methods=['GET', 'POST'])
-def pros():
+
+@app.route('/admin')
+def admin():
     cookie_1 = request.cookies.get("ss")
     if cookie_1 == 'admin':
-        if request.method == 'POST':  
-            title = request.form['title']  
-            text = request.form['text'] 
-            p_url = request.form['p-url'] 
-            url = request.form['url'] 
-            with open(r'templates/imform.html','r',encoding='utf-8') as f:
-                text = f.read()
         return render_template(f'admin.html')
     else:
         return "您没有权限"
-'''
+@app.route('/admin/science',methods=['GET', 'POST'])
+def edit_1():
+    cookie_1 = request.cookies.get("ss")
+    if cookie_1 == 'admin':
+        if request.method == 'POST':  
+            pass
+        return render_template(f'admin_sci.html')
+    else:
+        return "您没有权限"
+@app.route('/admin/birds')
+def edit_2():
+    cookie_1 = request.cookies.get("ss")
+    if cookie_1 == 'admin':
+        if request.method == 'POST':  
+            pass
+        return render_template(f'admin_bird.html')
+    else:
+        return "您没有权限"
+@app.route('/user')
+def user_net():
+    cookie = request.cookies.get("username")
+    cookie2 = request.cookies.get("ss")
+    if cookie==None:
+        return redirect('http://116.62.60.158/login', code=302) 
+    with open("login.txt","r",encoding='utf-8') as f:
+        a=f.read()
+        a=a.split('\n')
+        for i in a:
+            m=i.split(' ')
+            sig=m[2]
+    return render_template(f'user.html',sig=sig,username=cookie,cookie=cookie2)
+
 @app.errorhandler(Exception)
 def handle_exception(error):
     return render_template('error.html')
-'''
+
 if __name__ == '__main__':  
     os.system("clear")
     os.system("figlet LYFY   Web")

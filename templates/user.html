@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户资料</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .profile {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .username {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .signature {
+            font-style: italic;
+            color: #666;
+        }
+	.mima {
+		
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        
+        <img src="http://116.62.60.158/pic?key={{name}}" alt="{{name}}" class="avatar">
+        <div class="username">{{name}}</div>
+        <div class="signature">{{sig}}</div>
+	<a class="mima">修改密码/找回密码</a>
+	<div class="mima"</div>
+      { % if cookie == "admin" % }
+        <div class=edit>管理</div>
+      { % endif % }
+    </div>
+</body>
+</html>
