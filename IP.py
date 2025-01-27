@@ -32,9 +32,11 @@ def signup_net():
         username = request.form['username']  
         password = request.form['password'] 
         rpassword = request.form['rpassword'] 
+        sig=request.form['signature'] 
         with open(r'./login.txt','a') as f:
             if password==rpassword:
-                f.write(f'\n{username} {password}')
+                f.write(f'\n{username} {password} {sig}')
+                os.system(f"cp pic/user/main.png pic/user/upload/{username}.png")
                 return redirect('http://116.62.60.158/login', code=302) 
             else:
                 return "注册失败"        
@@ -85,6 +87,12 @@ def get_image3():
     image_path = os.path.join('pic', file)
     print(image_path)
     return send_file(image_path, mimetype='image/png') 
+@app.route('/usrpic')
+def get_image4():
+    file=request.args.get("key")+'.png'
+    image_path = os.path.join('pic/user/upload', file)
+    print(image_path)
+    return send_file(image_path, mimetype='image/png') 
 @app.route('/')  
 def net():  
     return redirect('http://116.62.60.158/login', code=302) 
@@ -125,7 +133,8 @@ def user_net():
         a=a.split('\n')
         for i in a:
             m=i.split(' ')
-            sig=m[2]
+            if m[0]==cookie:
+                sig=m[2]
     return render_template(f'user.html',sig=sig,username=cookie,cookie=cookie2)
 
 @app.errorhandler(Exception)
