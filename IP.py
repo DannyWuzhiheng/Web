@@ -1,7 +1,31 @@
 from flask import Flask, render_template, request, redirect, url_for, send_file, make_response
 import os 
 import pandas as pd  
+import json
 
+import json
+
+def edit(index,description,new_id="",name="",json_path="/Web/imform.json"):
+    
+    with open(json_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    if 0 <= index < len(data):
+        data[index]['description'] = description
+    else:
+        new_id = new_id
+        new_section = {
+            "id": new_id,
+            "name": name,
+            "tag": name,
+            "imageUrl": f"http://116.62.60.158/pic?key={new_id}",
+            "description": description
+        }
+        data.append(new_section)
+        print("成功：新增板块")
+    
+    with open(json_path, 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+    return "成功"
 app = Flask(__name__)  
   
 @app.route('/login', methods=['GET', 'POST'])  
@@ -52,7 +76,22 @@ def join_net():
     return render_template('join.html')  
 @app.route('/sheet')  
 def bird_sheet():  
-    return render_template('sheet.html')  
+    bird_list=[]
+    path='/Web/fjbird/'
+    pathlist=os.listdir(path)
+    for j in pathlist:
+        with open(f'/Web/fjbird/{j}','r',encoding='utf-8') as f:
+            json=f.read()
+        df = pd.read_json(json, orient='records')
+        n=df['name']
+        l=df['list']
+        a=j.replace('.json','')
+        listk=[a]
+        for i in range(len(n)):
+            lists=[n[i],l[i]]
+            listk.append(lists)
+        bird_list.append(listk)
+    return render_template('sheet.html',bird=bird_list)  
 @app.route('/imform')  
 def imform_net():  
     page=request.args.get("page")
@@ -105,21 +144,34 @@ def admin():
     else:
         return "您没有权限"
 @app.route('/admin/science',methods=['GET', 'POST'])
-def edit_1():
+def edit_web_admin():
     cookie_1 = request.cookies.get("ss")
+    with open(r'/Web/imform.json','r',encoding='utf-8') as f:
+        json=f.read()
+    df = pd.read_json(json, orient='records')
+    name=df['tag']
+    dec=df['description']
+    l=len(dec)
     if cookie_1 == 'admin':
         if request.method == 'POST':  
-            pass
-        return render_template(f'admin_sci.html')
-    else:
-        return "您没有权限"
-@app.route('/admin/birds')
-def edit_2():
-    cookie_1 = request.cookies.get("ss")
-    if cookie_1 == 'admin':
-        if request.method == 'POST':  
-            pass
-        return render_template(f'admin_bird.html')
+                description=[]
+                for i in range(l):
+                    try:
+                        description.append([request.form[f"description_{i}"],i])
+                    except:
+                        pass
+                try:
+                    description.append([request.form[f"description_{l}"],l])
+                    new_id=request.form["new_id"]
+                    name=request.form["name"]
+                except:
+                    pass    
+                for i in range(len(description)):
+                    if(description[i][1]==l):
+                        edit(l,description[i][0],new_id,name)
+                    else:
+                        edit(description[i][1],description[i][0])
+        return render_template(f'admin_science.html',name=name,description=dec,l=l)
     else:
         return "您没有权限"
 @app.route('/user')
