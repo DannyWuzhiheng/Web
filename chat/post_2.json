@@ -1,0 +1,18 @@
+{
+    "title": "论坛开贴",
+    "author": "xiaowu",
+    "content": "请先登录再发布",
+    "image_url": "",
+    "tags": [
+        "站务"
+    ],
+    "likes": 1,
+    "comments": [
+        {
+            "id": 0,
+            "author": "xiaowu",
+            "published_at": "xiaowu",
+            "content": "测试评论"
+        }
+    ]
+}

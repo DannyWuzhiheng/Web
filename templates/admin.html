@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://s2.loli.net/2024/08/28/1uhwTUpSiBD9yvG.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <title>管理页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #b8e0d6;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #b8e0d6;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .container {
+            display: flex;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            flex-grow: 1;
+        }
+        .sidebar {
+            width: 200px;
+            background-color:rgba(150,255,200,0.4);
+            padding: 20px;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            font-weight: bold;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar a-content {
+            position: relative;
+            z-index: 2;
+        }
+        .sidebar a:hover {
+                transform: scale(1.05);
+            }
+        .sidebar a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: rgba(100,255,150,0.35);
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="./index">
+                <img src="http://116.62.60.158/pic?key=KSCIX" alt="KSCIX Logo" style="height: 32px;">
+            </a>
+        </div>
+        <div style="display: flex; gap: 24px;">
+            <div class="bi bi-house">
+                <a href="./index"></a>
+            </div>
+            <a href="./index" style="color: #113; text-decoration: none;">首页</a>
+            <div class="bi bi-grid-3x3-gap">
+                <a href="./imform"></a>
+            </div>
+            <a href="./imform" style="color: #000; text-decoration: none;">常见鸟类</a>
+            <div class="bi bi-layout-text-sidebar-reverse">
+                <a href="./sheet"></a>
+            </div>
+            <a href="./sheet" style="color: #000; text-decoration: none;">鸟单</a>
+            <div class="bi bi-person">
+                <a href="./user"></a>
+            </div>
+            <a href="./user" style="color: #000; text-decoration: none;">admin</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="sidebar">
+            <h1>管理菜单</h1>
+            <ul>
+                <h3><li><a href="/admin/science">科普管理</a></li></h3>
+                <h3><li><a href="/admin/birds">鸟单管理</a></li></h3>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>欢迎来到管理页面</h1>
+            <h3>请从左侧菜单选择要管理的内容。</h3>
+        </div>
+    </div>
+</body>
+</html>

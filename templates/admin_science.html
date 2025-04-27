@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科普板块管理</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button, input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover, input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        #addSection {
+            background-color: #008CBA;
+            margin-bottom: 20px;
+        }
+        #addSection:hover {
+            background-color: #007B9A;
+        }
+        textarea {
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>科普板块管理（更改后请手动刷新查看结果）</h1>
+    {% for i in range(l) %}
+        <div class="section">
+            <h2>{{name[i]}}</h2>
+            <form action="/admin/science" method="post">
+                <div class="input-group">
+                    <label for="section_{{i}}-input2">介绍</label>
+                    <textarea type="text" id="{{i}}_description" name="description_{{i}}">{{description[i]}}</textarea>
+                </div>
+                <input type="submit" value="提交">
+            </form>
+        </div>
+    {% endfor %}
+    <form action="/admin/science" method="post">
+            <div class="input-group">
+                <label for="section_{{l}}-input1">鸟类名称（拼音英文字母（不要问我为什么））</label>
+                <input type="text" id="{{l}}_name" name="new_id">
+            </div>
+            <div class="input-group">
+                <label for="section_{{l}}-input1">鸟类名称</label>
+                <input type="text" id="{{l}}_name" name="name">
+            </div>
+            <div class="input-group">
+                <label for="section_{{l}}-input2">介绍</label>
+                <textarea type="text" id="{{l}}_description" name="description_{{l}}"></textarea>
+            </div>
+        <input type="submit" id="addSection" value="添加新板块（添加后请告知超管小鹀）">
+    </form>
+</body>
+</html>

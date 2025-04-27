@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{name}}</title>
+    <link rel="shortcut icon" href="https://s2.loli.net/2024/08/28/1uhwTUpSiBD9yvG.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b8e0d6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c7a7b;
+            margin-bottom: 20px;
+        }
+        .sun {
+            width: 30px;
+            height: 30px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .box {
+            aspect-ratio: 4 / 3;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+            text-decoration: none; /* 移除链接的下划线 */
+            display: block; /* 使链接填满整个盒子 */
+        }
+        .box:hover {
+            transform: scale(1.05);
+        }
+        .box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.8));
+            z-index: 1;
+        }
+        .box-content {
+            position: relative;
+            z-index: 2;
+        }
+        .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255,255,255,0.8);
+            color: #2c7a7b;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">{{name}}</h1>
+            <img src={{img}} alt="图片被小鸟叼走啦，快让小鹀把它追回来吧" height="240" width="320">
+            <div class="sun"></div>
+        </div>
+        <div class="grid">
+            {{dec}}
+        </div>
+    </div>
+</body>
+</html>
