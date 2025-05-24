@@ -1,222 +1,678 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="shortcut icon" href="https://s2.loli.net/2024/08/28/1uhwTUpSiBD9yvG.png" type="image/png">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-        <title>罗源县“林荫飞羽”观鸟入门课官方网站</title>
-        <style>
-            body {
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://s2.loli.net/2024/08/28/1uhwTUpSiBD9yvG.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <title>罗源县"林荫飞羽"观鸟入门课官方网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: Arial, sans-serif;
             background-color: #b8e0d6;
             margin: 0;
-            padding: 20px;
-            }
-            .container {
-                max-width: 800px;
-                margin: 0 auto;
-            }
-            h1 {
-                color: #2c7a7b;
-                margin-bottom: 20px;
-            }
-            .sun {
-                width: 30px;
-                height: 30px;
-                background-color: #ffd700;
-                border-radius: 50%;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-            .box {
-                background-size: cover;
-                background-position: center;
-                border-radius: 10px;
-                padding: 20px;
-                color: #1f6e6f;
-                font-weight: bold;
-                overflow: hidden;
-                position: relative;
-                transition: transform 0.3s ease;
-                text-decoration: none;
-                display: block;
-            }
-            .box:hover {
-                transform: scale(1.05);
-            }
-            .box::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 1;
-            }
-            .box-content {
-                position: relative;
-                z-index: 2;
-            }
-            .tag {
-                position: absolute;
-                top: 10px;
-                left: 10px;
-                background-color: rgba(255,255,255,0.8);
-                color: #2c7a7b;
-                padding: 5px 10px;
-                border-radius: 15px;
-                font-size: 0.8em;
-            }
-            .pagination {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-top: 20px;
-            }
-            .pagination a {
-                color: #2c7a7b;
-                float: left;
-                padding: 8px 16px;
-                text-decoration: none;
-                transition: background-color .3s;
-                border: 1px solid #ddd;
-                margin: 0 4px;
-            }
-            .pagination a.active {
-                background-color: #2c7a7b;
-                color: white;
-                border: 1px solid #2c7a7b;
-            }
-            .pagination a:hover:not(.active) {background-color: #ddd;}
-        </style>
-    </head>
-    <body>
-        <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #b8e0d6; border-bottom: 1px solid #e5e5e5;">
-            <div>
-                <a href="./index">
-                    <img src="http://116.62.60.158/pic?key=KSCIX" alt="KSCIX Logo" style="height: 32px;">
-                </a>
-            </div>
-            <div style="display: flex; gap: 24px;">
-                <li class="bi bi-house">
-                    <a href="./index"></a>
-                </li>
-                <a href="./index" style="color: #113; text-decoration: none;">首页</a>
-                <li class="bi bi-grid-3x3-gap">
-                    <a href="./imform"></a>
-                </li>
-                <a href="./imform" style="color: #000; text-decoration: none;">常见鸟类</a>
-                <li class="bi bi-chat">
-                    <a href="./chat" style="color: #000; text-decoration: none;">论坛（未完成）</a>
-                </li>
-                <li class="bi bi-layout-text-sidebar-reverse">
-                    <a href="./sheet"></a>
-                </li>
-                <a href="./sheet" style="color: #000; text-decoration: none;">鸟单</a>
-                <li class="bi bi-person">
-                    <a href="./user"></a>
-                </li>
-                <a href="./user" style="color: #000; text-decoration: none;">{{username}}</a>
-            </div>
-        </nav>
-        <div class="container">
-            <div class="project-intro">
-                <h1>
-                    罗源县“林荫飞羽”观鸟入门课
-                </h1>
-            </div>
-            <div class="project-details">
-                <div class="box">
-                    <h2>
-                        活动宗旨
-                    </h2>
-                        <h3>
-                            1.爱护自然
-                        </h3>
-                        <p>
-                            我们组织此活动的第一目的就是为了让大众爱上自然，学会保护鸟类
-                        </p>
-                        <h3>
-                            2.提供观鸟相关咨询
-                        </h3>
-                        <p>
-                            其次，组织此活动的第二个目标是可以大家科普鸟类知识
-                        </p>
-                </div>
-                <div class="box">
-                    <h2>
-                        活动时间
-                    </h2>
-                        <p>        
-                            请等待相关通知
-                        </p>
-                </div>   
-                <div class="box"> 
-                    <h2>
-                        联系方式
-                    </h2>    
-                        <p>
-                            小鹀：17759257560（飞书手机同号）
-                        </p>
-                        <p>
-                            outlook邮箱:danny_wuzhiheng@outlook.com<br>
-                            QQ:3688974995<br>
-                            QQ双邮箱：danny_wuzhiheng@qq.com（建议使用QQ邮箱（两个都可以））
-                        </p>
-                        <p>
-                            PS.由于我没有配置outlook的POP接收，所以可能费时间
-                        </p>
-                        <p>
-                            &ThickSpace;
-                        </p>
-                        <p>
-                            麦鸡：1506065080
-                        </p>
-                        <p>
-                            outlook邮箱:SCIX_FUXIN_han@outlook.com<br>
-                            QQ:3875483872（可以发QQ邮箱）
-                        </p>
-                        <p>
-                            &ThickSpace;
-                        </p>
-                        <p>
-                            小秋：13645030906
-                        </p>
+            padding: 0;
+        }
 
-                        <p>
-                            邮箱:272018426@qq.com
-                        </p>
-                        <p>
-                            &ThickSpace;
-                        </p>
-                        <p>
-                            文珍：13763888992
-                        </p>
-                        <p>
-                            邮箱:22640270@qq.com
-                        </p>
-                </div>  
-                <div class="box">
-                    <h2>
-                        站务/通知公告
-                    </h2>
-                    <p>        
-                        1.论坛及鸟单还在开发
-                        2.论坛基础功能已经上线，但用户评论功能还在开发中
-                        3.个人消息在开发中
-                        4.鸟单仅有style，并没有功能
-                    </p>
-                </div>
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #b8e0d6;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #000;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2c7a7b;
+        }
+
+        .nav-links a:first-child {
+            color: #113;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .carousel {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c7a7b;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(255,255,255,1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: 20px;
+        }
+
+        .carousel-next {
+            right: 20px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .carousel-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ccc;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot:hover {
+            background: #999;
+            transform: scale(1.2);
+        }
+
+        .carousel-dot.active {
+            background: #2c7a7b;
+            transform: scale(1.3);
+        }
+
+        /* Main Content Styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c7a7b;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .box {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            color: #1f6e6f;
+            font-weight: bold;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .box:hover {
+            transform: scale(1.02);
+        }
+
+        .box h2 {
+            color: #2c7a7b;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .box h3 {
+            color: #2c7a7b;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .box p {
+            color: #666;
+            font-weight: normal;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .join-link {
+            display: inline-block;
+            background-color: #2c7a7b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .join-link:hover {
+            background-color: #1f6e6f;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #2c7a7b;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .bilibili-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .bilibili-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #00a1d6;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .bilibili-link:hover {
+            background-color: #0085b3;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1f6e6f;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .footer-bottom p {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Loading indicator */
+        .carousel-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+            background: #f5f5f5;
+            color: #666;
+            font-size: 16px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .debug-info {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 12px;
+                font-size: 14px;
+            }
+
+            .carousel-slide img {
+                height: 250px;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .carousel-prev {
+                left: 10px;
+            }
+
+            .carousel-next {
+                right: 10px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bilibili-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div>
+            <a href="./index">
+                <img src="http://116.62.60.158/pic?key=KSCIX" alt="KSCIX Logo" style="height: 32px;">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="./index">
+                <i class="bi bi-house"></i>
+                首页
+            </a>
+            <a href="./imform">
+                <i class="bi bi-grid-3x3-gap"></i>
+                常见鸟类
+            </a>
+            <a href="./chat">
+                <i class="bi bi-chat"></i>
+                论坛（未完成）
+            </a>
+            <a href="./sheet">
+                <i class="bi bi-layout-text-sidebar-reverse"></i>
+                鸟单
+            </a>
+            <a href="./user">
+                <i class="bi bi-person"></i>
+                {{username}}
+            </a>
+        </div>
+    </nav>
+
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-loading" id="carouselLoading">
+                <div>正在加载图片...</div>
+                <div class="debug-info" id="debugInfo">从服务器获取图片中...</div>
             </div>
-            <p>
-                &ThinSpace;
-            </p>
+            <div class="carousel-wrapper" id="carouselWrapper" style="display: none;">
+                <!-- Images will be loaded dynamically -->
+            </div>
+            
+            <button class="carousel-nav carousel-prev" onclick="prevSlide()" style="display: none;">‹</button>
+            <button class="carousel-nav carousel-next" onclick="nextSlide()" style="display: none;">›</button>
+            
+            <div class="carousel-dots" id="carouselDots" style="display: none;">
+                <!-- Dots will be generated dynamically -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="project-intro">
+            <h1>罗源县"林荫飞羽"观鸟入门课</h1>
         </div>
         
-    </body>  
+        <div class="grid">
+            <!-- Activity Purpose -->
+            <div class="box">
+                <h2>活动宗旨</h2>
+                <h3>1.爱护自然</h3>
+                <p>我们组织此活动的第一目的就是为了让大众爱上自然，学会保护鸟类</p>
+                <h3>2.提供观鸟相关咨询</h3>
+                <p>其次，组织此活动的第二个目标是可以大家科普鸟类知识</p>
+            </div>
+
+            <!-- Activity Time -->
+            <div class="box">
+                <h2>活动时间</h2>
+                <p>请等待相关通知</p>
+                <a href="http://116.62.60.158/join" class="join-link" target="_blank">立即报名参加</a>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="box">
+                <h2>联系方式</h2>
+                <p><strong>小鹀：</strong>17759257560（飞书手机同号）</p>
+                <p>outlook邮箱: danny_wuzhiheng@outlook.com<br>
+                QQ: 3688974995<br>
+                QQ双邮箱：danny_wuzhiheng@qq.com（建议使用QQ邮箱（两个都可以））</p>
+                <p style="font-size: 12px; color: #999;">PS.由于我没有配置outlook的POP接收，所以可能费时间</p>
+                
+                <p><strong>麦鸡：</strong>1506065080</p>
+                <p>outlook邮箱: SCIX_FUXIN_han@outlook.com<br>
+                QQ: 3875483872（可以发QQ邮箱）</p>
+                
+                <p><strong>小秋：</strong>13645030906</p>
+                <p>邮箱: 272018426@qq.com</p>
+                
+                <p><strong>文珍：</strong>13763888992</p>
+                <p>邮箱: 22640270@qq.com</p>
+            </div>
+
+            <!-- Announcements -->
+            <div class="box">
+                <h2>站务/通知公告</h2>
+                <p>1.论坛及鸟单还在开发<br>
+                2.论坛基础功能已经上线，但用户评论功能还在开发中<br>
+                3.个人消息在开发中<br>
+                4.鸟单仅有style，并没有功能</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with Bilibili Links -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>关注我们的B站账号</h3>
+            <div class="bilibili-links">
+                <a href="https://space.bilibili.com/525649982?spm_id_from=333.1387.fans.user_card.click" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="bilibili-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .356-.124.657-.373.906l-1.174 1.12zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.789 1.894v7.52c.02.764.283 1.396.789 1.894.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.13.789-1.894v-7.52c-.02-.765-.283-1.396-.789-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/>
+                    </svg>
+                    麦鸡
+                </a>
+                <a href="https://space.bilibili.com/3546680781703317?spm_id_from=333.40164.0.0" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="bilibili-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .356-.124.657-.373.906l-1.174 1.12zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.789 1.894v7.52c.02.764.283 1.396.789 1.894.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.13.789-1.894v-7.52c-.02-.765-.283-1.396-.789-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/>
+                    </svg>
+                    小鹀
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 罗源县"林荫飞羽"观鸟入门课 - 让我们一起保护鸟类，热爱自然</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let autoPlayInterval;
+
+        // 使用服务器API加载图片，从1到10
+        const imageKeys = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        // 动态加载图片
+        function loadCarouselImages() {
+            const wrapper = document.getElementById('carouselWrapper');
+            const dotsContainer = document.getElementById('carouselDots');
+            const loading = document.getElementById('carouselLoading');
+            const debugInfo = document.getElementById('debugInfo');
+            
+            let loadedImages = 0;
+            let validImages = [];
+
+            debugInfo.textContent = `正在从服务器加载 ${imageKeys.length} 张图片...`;
+
+            // 测试每个图片key是否存在
+            imageKeys.forEach((key, index) => {
+                const img = new Image();
+                const imageUrl = `http://116.62.60.158/pica?key=${key}`;
+                
+                img.onload = function() {
+                    validImages.push({
+                        src: imageUrl,
+                        alt: `轮播图片 ${key}`,
+                        key: key
+                    });
+                    console.log(`成功加载图片 key=${key}: ${imageUrl}`);
+                    
+                    loadedImages++;
+                    debugInfo.textContent = `已加载 ${loadedImages}/${imageKeys.length} 张图片，成功 ${validImages.length} 张`;
+                    
+                    if (loadedImages === imageKeys.length) {
+                        // 按key排序
+                        validImages.sort((a, b) => a.key - b.key);
+                        createCarousel(validImages);
+                    }
+                };
+                
+                img.onerror = function() {
+                    console.log(`图片加载失败 key=${key}: ${imageUrl}`);
+                    loadedImages++;
+                    
+                    if (loadedImages === imageKeys.length) {
+                        // 按key排序
+                        validImages.sort((a, b) => a.key - b.key);
+                        createCarousel(validImages);
+                    }
+                };
+                
+                // 设置图片源，触发加载
+                img.src = imageUrl;
+            });
+
+            // 如果8秒后还没有加载完成，显示调试信息
+            setTimeout(() => {
+                if (totalSlides === 0 && validImages.length === 0) {
+                    debugInfo.innerHTML = `
+                        <div>无法从服务器加载图片</div>
+                        <div style="font-size: 10px; margin-top: 5px;">
+                            尝试的URL格式: http://116.62.60.158/pica?key=1<br>
+                            请检查服务器是否正常运行<br>
+                            或者检查网络连接
+                        </div>
+                    `;
+                    
+                    // 显示一些占位图片作为示例
+                    const placeholderImages = [
+                        { src: '/placeholder.svg?height=400&width=1200&text=观鸟图片1', alt: '占位图片 1', key: 1 },
+                        { src: '/placeholder.svg?height=400&width=1200&text=观鸟图片2', alt: '占位图片 2', key: 2 },
+                        { src: '/placeholder.svg?height=400&width=1200&text=观鸟图片3', alt: '占位图片 3', key: 3 }
+                    ];
+                    createCarousel(placeholderImages);
+                }
+            }, 8000);
+        }
+
+        function createCarousel(images) {
+            const wrapper = document.getElementById('carouselWrapper');
+            const dotsContainer = document.getElementById('carouselDots');
+            const loading = document.getElementById('carouselLoading');
+            
+            if (images.length === 0) {
+                loading.innerHTML = `
+                    <div>暂无图片</div>
+                    <div class="debug-info">请检查服务器API是否正常</div>
+                `;
+                return;
+            }
+
+            totalSlides = images.length;
+            console.log(`创建轮播，共 ${totalSlides} 张图片`);
+            
+            // 创建轮播图片
+            wrapper.innerHTML = '';
+            images.forEach((image, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.innerHTML = `<img src="${image.src}" alt="${image.alt}" onload="console.log('图片显示成功: key=${image.key}')" onerror="console.log('图片显示失败: key=${image.key}')">`;
+                wrapper.appendChild(slide);
+            });
+
+            // 创建圆点指示器
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+
+            // 显示轮播
+            loading.style.display = 'none';
+            wrapper.style.display = 'flex';
+            document.querySelector('.carousel-prev').style.display = 'flex';
+            document.querySelector('.carousel-next').style.display = 'flex';
+            dotsContainer.style.display = 'flex';
+
+            // 开始自动播放
+            startAutoPlay();
+            
+            console.log('轮播创建完成');
+        }
+
+        function updateCarousel() {
+            const wrapper = document.getElementById('carouselWrapper');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            if (wrapper && totalSlides > 0) {
+                wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+        }
+
+        function nextSlide() {
+            if (totalSlides > 0) {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }
+        }
+
+        function prevSlide() {
+            if (totalSlides > 0) {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+        }
+
+        function goToSlide(index) {
+            if (totalSlides > 0) {
+                currentSlide = index;
+                updateCarousel();
+            }
+        }
+
+        function startAutoPlay() {
+            if (totalSlides > 1) {
+                autoPlayInterval = setInterval(nextSlide, 4000);
+            }
+        }
+
+        function stopAutoPlay() {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+            }
+        }
+
+        // 鼠标悬停时暂停自动播放
+        document.querySelector('.carousel').addEventListener('mouseenter', stopAutoPlay);
+        document.querySelector('.carousel').addEventListener('mouseleave', startAutoPlay);
+
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+
+        document.querySelector('.carousel').addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            stopAutoPlay();
+        });
+
+        document.querySelector('.carousel').addEventListener('touchend', function(e) {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+            startAutoPlay();
+        });
+
+        function handleSwipe() {
+            const threshold = 50;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+
+        // 页面加载完成后初始化轮播
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('页面加载完成，开始初始化轮播');
+            console.log('当前页面路径:', window.location.href);
+            loadCarouselImages();
+        });
+    </script>
+</body>
 </html>
