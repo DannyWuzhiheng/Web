@@ -38,7 +38,8 @@ def login_net():
                 if usps[0]==username and usps[1]==password:
                     resp = make_response(redirect('http://116.62.60.158/index', code=302))
                     resp.set_cookie("login",username)
-                    if username == 'Administrator' or username == 'xiaowu' or username == 'maiji' or username == '黄小秋':
+                    #此处没有使用高级方法，以后修复
+                    if username == YOUR_ADMIN:
                         resp.set_cookie("ss",'admin')
                     else:
                         resp.set_cookie("ss",'user')
@@ -138,6 +139,12 @@ def get_image3():
     image_path = os.path.join('pic', file)
     print(image_path)
     return send_file(image_path, mimetype='image/png') 
+@app.route('/pica')
+def get_image55():
+    file=request.args.get("key")+'.jpg'
+    image_path = os.path.join('pic/nav', file)
+    print(image_path)
+    return send_file(image_path, mimetype='image/jpg') 
 @app.route('/usrpic')
 def get_image4():
     file=request.args.get("key")+'.png'
